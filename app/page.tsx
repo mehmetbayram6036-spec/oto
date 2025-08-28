@@ -87,8 +87,18 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Content */}
+            {/* Left Side - Car Image and Content */}
             <div className="text-center lg:text-left">
+              {/* Car Image */}
+              <div className="mb-8 flex justify-center lg:justify-start">
+                <img 
+                  src="/arac.png" 
+                  alt="Araç Değerleme" 
+                  className="w-64 h-48 object-contain"
+                />
+              </div>
+              
+              {/* Text Content Below Car Image */}
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
                 Aracınızın Gerçek Değerini
                 <span className="text-blue-600 block">Öğrenin</span>
@@ -104,7 +114,6 @@ export default function Home() {
                 >
                   Hemen Değerle
                 </Link>
-
               </div>
             </div>
 
@@ -146,7 +155,7 @@ export default function Home() {
                   <select
                     value={modelYear}
                     onChange={(e) => setModelYear(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer text-gray-900"
                     required
                   >
                     <option value="">Model Yılı Seçin</option>
@@ -171,7 +180,7 @@ export default function Home() {
                   <select
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer text-gray-900"
                     required
                   >
                     <option value="">Marka Seçin</option>
@@ -236,16 +245,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sliders Section */}
+      {/* Sliders Section - Removed car image background */}
       <section className="py-16 bg-blue-600 relative overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 opacity-10">
-          <img 
-            src="/car-valuation.png" 
-            alt="Car Valuation Background" 
-            className="w-full h-full object-cover"
-          />
-        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
