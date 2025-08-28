@@ -139,13 +139,13 @@ export default function Home() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Model Year Select */}
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
                     <Car className="h-5 w-5 text-gray-400" />
                   </div>
                   <select
                     value={modelYear}
                     onChange={(e) => setModelYear(e.target.value)}
-                    className="form-select pl-12 pr-4"
+                    className="w-full pl-12 pr-10 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 appearance-none cursor-pointer transition-colors"
                     required
                   >
                     <option value="">Model Yılı Seçin</option>
@@ -164,13 +164,13 @@ export default function Home() {
 
                 {/* Brand Select */}
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
                     <div className="w-5 h-5 bg-gray-400 rounded-sm"></div>
                   </div>
                   <select
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className="form-select pl-12 pr-4"
+                    className="w-full pl-12 pr-10 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 appearance-none cursor-pointer transition-colors"
                     required
                   >
                     <option value="">Marka Seçin</option>
@@ -216,7 +216,7 @@ export default function Home() {
                   disabled={!modelYear || !brand}
                   className={`w-full py-4 rounded-lg font-bold text-lg transition-colors ${
                     modelYear && brand 
-                      ? 'btn btn-primary' 
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' 
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >
