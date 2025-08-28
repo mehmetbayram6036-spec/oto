@@ -263,7 +263,7 @@ export default function Home() {
                   <TrendingUp className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Kilometre Etkisi</h3>
-                <p className="text-gray-600 text-sm">Aracınızın kilometresi değerini nasıl etkiler?</p>
+                <p className="text-gray-700 text-sm">Aracınızın kilometresi değerini nasıl etkiler?</p>
               </div>
               
               <div className="space-y-4">
@@ -281,7 +281,7 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <div className="text-xl md:text-2xl font-bold text-blue-600">₺285.000</div>
-                  <div className="text-sm text-gray-600">Tahmini Değer</div>
+                  <div className="text-sm text-gray-700">Tahmini Değer</div>
                 </div>
               </div>
             </div>
@@ -293,7 +293,7 @@ export default function Home() {
                   <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Yaş Etkisi</h3>
-                <p className="text-gray-600 text-sm">Aracınızın yaşı değerini nasıl etkiler?</p>
+                <p className="text-gray-700 text-sm">Aracınızın yaşı değerini nasıl etkiler?</p>
               </div>
               
               <div className="space-y-4">
@@ -311,7 +311,7 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <div className="text-xl md:text-2xl font-bold text-green-600">₺320.000</div>
-                  <div className="text-sm text-gray-600">Tahmini Değer</div>
+                  <div className="text-sm text-gray-700">Tahmini Değer</div>
                 </div>
               </div>
             </div>
@@ -323,7 +323,7 @@ export default function Home() {
                   <Award className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Durum Etkisi</h3>
-                <p className="text-gray-600 text-sm">Aracınızın durumu değerini nasıl etkiler?</p>
+                <p className="text-gray-700 text-sm">Aracınızın durumu değerini nasıl etkiler?</p>
               </div>
               
               <div className="space-y-4">
@@ -341,7 +341,7 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <div className="text-xl md:text-2xl font-bold text-purple-600">₺295.000</div>
-                  <div className="text-sm text-gray-600">Tahmini Değer</div>
+                  <div className="text-sm text-gray-700">Tahmini Değer</div>
                 </div>
               </div>
             </div>
@@ -350,7 +350,7 @@ export default function Home() {
           {/* Interactive Demo */}
           <div className="mt-8 md:mt-12 bg-white rounded-lg p-6 md:p-8 text-gray-900 text-center shadow-md">
             <h3 className="text-xl md:text-2xl font-bold text-blue-600 mb-4">Gerçek Zamanlı Değerleme</h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-700 mb-6">
               Yukarıdaki sliders'ları kullanarak farklı senaryoları test edin ve aracınızın değerinin nasıl değiştiğini görün
             </p>
             <Link 
@@ -370,44 +370,44 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
               Neden aracteklifi.com?
             </h2>
-            <p className="text-base md:text-lg text-gray-600">
+            <p className="text-base md:text-lg text-gray-700">
               Binlerce kullanıcının güvendiği araç değerleme platformu
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
               <div className="bg-blue-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <Calculator className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
                               <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                   Hızlı Değerleme
                 </h3>
-              <p className="text-gray-600 text-sm md:text-base">
+              <p className="text-gray-700 text-sm md:text-base">
                 5 dakika içinde aracınızın detaylı değerleme raporunu alın
               </p>
             </div>
             
-            <div className="text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
               <div className="bg-green-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <Shield className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
                               <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                   Güvenilir Sonuçlar
                 </h3>
-              <p className="text-gray-600 text-sm md:text-base">
+              <p className="text-gray-700 text-sm md:text-base">
                 Piyasa verilerine dayalı %95 doğruluk oranı ile değerleme
               </p>
             </div>
             
-            <div className="text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
               <div className="bg-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
                               <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                   7/24 Hizmet
                 </h3>
-              <p className="text-gray-600 text-sm md:text-base">
+              <p className="text-gray-700 text-sm md:text-base">
                 İstediğiniz zaman araç değerleme hizmetimizden yararlanın
               </p>
             </div>
@@ -422,7 +422,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
               Nasıl Çalışır?
             </h2>
-            <p className="text-base md:text-lg text-gray-600">
+            <p className="text-base md:text-lg text-gray-700">
               3 basit adımda aracınızın değerini öğrenin
             </p>
           </div>
@@ -435,7 +435,7 @@ export default function Home() {
               <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                 Araç Bilgilerini Girin
               </h3>
-              <p className="text-gray-600 text-sm md:text-base">
+              <p className="text-gray-700 text-sm md:text-base">
                 Marka, model, yıl ve diğer detayları kolayca girin
               </p>
             </div>
@@ -447,7 +447,7 @@ export default function Home() {
               <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                 Anında Değerleme
               </h3>
-              <p className="text-gray-600 text-sm md:text-base">
+              <p className="text-gray-700 text-sm md:text-base">
                 Yapay zeka destekli sistem ile anında değerleme yapılır
               </p>
             </div>
@@ -459,7 +459,7 @@ export default function Home() {
               <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                 Detaylı Rapor Alın
               </h3>
-              <p className="text-gray-600 text-sm md:text-base">
+              <p className="text-gray-700 text-sm md:text-base">
                 Piyasa analizi ve satış önerileri ile birlikte raporunuzu alın
               </p>
             </div>
