@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     const { name, email, phone, message } = body;
 
     // E-posta transporter'ı oluştur
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
