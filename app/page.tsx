@@ -36,34 +36,34 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
-      <header className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
+      <header className="bg-slate-800/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <div>
-                <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                   aracteklifi.com
                 </h1>
-                <div className="text-lg text-gray-500 font-medium">Araç Değerleme</div>
+                <div className="text-lg text-slate-300 font-medium">Araç Değerleme</div>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <Link href="/" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
                 Ana Sayfa
               </Link>
-              <Link href="/arac-degerle" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <Link href="/arac-degerle" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
                 Araç Değerle
               </Link>
-              <Link href="/iletisim" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <Link href="/iletisim" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
                 İletişim
               </Link>
             </nav>
             <div className="flex items-center space-x-3">
               <Link 
                 href="/arac-degerle"
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md"
               >
                 Aracını Sat
               </Link>
@@ -89,18 +89,18 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Side - Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Aracınızın Gerçek Değerini
-                <span className="text-blue-600 block">Öğrenin</span>
+                <span className="text-blue-400 block">Öğrenin</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl lg:max-w-none">
+              <p className="text-xl text-slate-300 mb-8 max-w-2xl lg:max-w-none">
                 aracteklifi.com ile aracınızın piyasa değerini dakikalar içinde öğrenin. 
                 Güvenilir ve şeffaf değerleme sistemi ile aracınızı en iyi fiyata satın.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link 
                   href="/arac-degerle"
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-lg"
                 >
                   Hemen Değerle
                 </Link>
@@ -108,7 +108,7 @@ export default function Home() {
             </div>
 
             {/* Right Side - Car Valuation Form */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 order-1 lg:order-2">
+            <div className="bg-slate-800/90 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-slate-600/30 order-1 lg:order-2">
               {/* Logo and Branding */}
               <div className="flex items-center mb-6">
                 <div className="relative">
@@ -120,17 +120,17 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h2 className="text-2xl font-bold text-gray-900">aracteklifi.com</h2>
-                  <p className="text-base text-gray-600">Araç Değerleme Platformu</p>
+                  <h2 className="text-2xl font-bold text-white">aracteklifi.com</h2>
+                  <p className="text-base text-slate-300">Araç Değerleme Platformu</p>
                 </div>
               </div>
 
               {/* Main Call to Action */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-white mb-2">
                   Aracını aracteklifi.com güvencesi ile hemen sat,
                 </h3>
-                <p className="text-lg font-semibold text-blue-600">
+                <p className="text-lg font-semibold text-blue-400">
                   Aracınıza kapınızda bakalım
                 </p>
               </div>
@@ -145,7 +145,7 @@ export default function Home() {
                   <select
                     value={modelYear}
                     onChange={(e) => setModelYear(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
+                    className="w-full pl-12 pr-4 py-4 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/90 backdrop-blur-sm appearance-none cursor-pointer text-white"
                     required
                   >
                     <option value="">Model Yılı Seçin</option>
@@ -170,7 +170,7 @@ export default function Home() {
                   <select
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
+                    className="w-full pl-12 pr-4 py-4 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/90 backdrop-blur-sm appearance-none cursor-pointer text-white"
                     required
                   >
                     <option value="">Marka Seçin</option>
@@ -189,7 +189,7 @@ export default function Home() {
                 
                 {/* Selected Brand Display */}
                 {brand && (
-                  <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="flex items-center space-x-3 p-3 bg-blue-900/50 rounded-lg border border-blue-600/30">
                     <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
                       <img
                         src={`https://logo.clearbit.com/${brand.toLowerCase().replace(/\s+/g, '')}.com`}
@@ -204,9 +204,9 @@ export default function Home() {
                           }
                         }}
                       />
-                      <span className="text-xs font-bold text-gray-500 hidden">{brand.charAt(0)}</span>
+                      <span className="text-xs font-bold text-blue-300 hidden">{brand.charAt(0)}</span>
                     </div>
-                    <span className="font-medium text-gray-900 text-sm md:text-base">{brand}</span>
+                    <span className="font-medium text-white text-sm md:text-base">{brand}</span>
                   </div>
                 )}
 
@@ -216,8 +216,8 @@ export default function Home() {
                   disabled={!modelYear || !brand}
                                       className={`w-full py-4 rounded-lg font-bold text-lg transition-colors ${
                       modelYear && brand 
-                        ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg' 
+                        : 'bg-slate-600 text-slate-400 cursor-not-allowed'
                     }`}
                 >
                   ÜCRETSİZ TEKLİF AL
@@ -226,7 +226,7 @@ export default function Home() {
 
               {/* Background Note */}
               <div className="mt-4 text-center">
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-slate-400">
                   Güvenli ve hızlı değerleme süreci
                 </p>
               </div>

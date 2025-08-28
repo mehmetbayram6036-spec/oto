@@ -1,72 +1,122 @@
 @use "tailwindcss";
 
-// Corporate CSS Variables - Professional Color Scheme
+// Corporate Dark Theme CSS Variables
 :root {
-  --background: #ffffff;
-  --foreground: #1a202c;
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
+  // Primary Corporate Colors
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
   --primary-light: #3b82f6;
+  --primary-accent: #60a5fa;
+  
+  // Secondary Corporate Colors
   --secondary: #475569;
-  --accent: #f8fafc;
-  --success: #059669;
-  --warning: #d97706;
-  --error: #dc2626;
-  --text-primary: #1e293b;
+  --secondary-dark: #334155;
+  --secondary-light: #64748b;
+  
+  // Background Colors - Dark Corporate Theme
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  --bg-overlay: rgba(15, 23, 42, 0.95);
+  
+  // Text Colors
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #60a5fa;
+  
+  // Border Colors
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --border-accent: #3b82f6;
+  
+  // Status Colors
+  --success: #10b981;
+  --success-dark: #059669;
+  --warning: #f59e0b;
+  --warning-dark: #d97706;
+  --error: #ef4444;
+  --error-dark: #dc2626;
+  
+  // Corporate Gradients
+  --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  --gradient-secondary: linear-gradient(135deg, #475569 0%, #334155 100%);
+  --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --gradient-card: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  
+  // Shadows
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+// Light Theme Variables (for theme switching)
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-overlay: rgba(255, 255, 255, 0.95);
+  
+  --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
-  --border: #e2e8f0;
-  --border-dark: #cbd5e1;
-  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --text-accent: #1e40af;
   
-  // Corporate gradient colors - from vibrant to muted
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  --gradient-secondary: linear-gradient(135deg, #475569 0%, #374151 100%);
-  --gradient-success: linear-gradient(135deg, #059669 0%, #047857 100%);
-  --gradient-warning: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-  --gradient-muted: linear-gradient(135deg, #64748b 0%, #475569 100%);
-  --gradient-corporate: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --border-accent: #3b82f6;
+  
+  --gradient-dark: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
 }
 
-// Dark mode variables
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-    --primary: #3b82f6;
-    --primary-dark: #2563eb;
-    --primary-light: #60a5fa;
-    --secondary: #94a3b8;
-    --accent: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --border: #334155;
-    --border-dark: #475569;
-  }
+// Blue Corporate Theme
+[data-theme="blue-corporate"] {
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --primary-light: #3b82f6;
+  --primary-accent: #60a5fa;
+  
+  --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
 }
 
-// Tailwind theme configuration
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-light: var(--primary-light);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-border: var(--border);
-  --color-border-dark: var(--border-dark);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+// Green Corporate Theme
+[data-theme="green-corporate"] {
+  --primary: #059669;
+  --primary-dark: #047857;
+  --primary-light: #10b981;
+  --primary-accent: #34d399;
+  
+  --gradient-primary: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+// Purple Corporate Theme
+[data-theme="purple-corporate"] {
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --primary-light: #8b5cf6;
+  --primary-accent: #a78bfa;
+  
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+// Red Corporate Theme
+[data-theme="red-corporate"] {
+  --primary: #dc2626;
+  --primary-dark: #b91c1c;
+  --primary-light: #ef4444;
+  --primary-accent: #f87171;
+  
+  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  --gradient-accent: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
 }
 
 // Base styles
@@ -79,15 +129,16 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s ease;
 }
 
-// Typography improvements for better readability
+// Typography
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-weight: 700;
@@ -101,14 +152,14 @@ p {
   line-height: 1.7;
 }
 
-// Link styles
+// Links
 a {
-  color: var(--primary);
+  color: var(--primary-accent);
   text-decoration: none;
   transition: color 0.2s ease;
   
   &:hover {
-    color: var(--primary-dark);
+    color: var(--primary-light);
   }
 }
 
@@ -137,11 +188,11 @@ a {
   &-primary {
     background: var(--gradient-primary);
     color: #ffffff !important;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25);
+    box-shadow: var(--shadow-md);
     
     &:hover:not(:disabled) {
       transform: translateY(-1px);
-      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.35);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
       color: #ffffff !important;
     }
   }
@@ -149,42 +200,24 @@ a {
   &-secondary {
     background: var(--gradient-secondary);
     color: #ffffff !important;
-    box-shadow: 0 4px 6px rgba(71, 85, 105, 0.25);
+    box-shadow: var(--shadow-md);
     
     &:hover:not(:disabled) {
       transform: translateY(-1px);
-      box-shadow: 0 6px 12px rgba(71, 85, 105, 0.35);
+      box-shadow: var(--shadow-lg);
       color: #ffffff !important;
     }
   }
   
   &-outline {
     background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
+    color: var(--primary-accent);
+    border: 2px solid var(--primary-accent);
     
     &:hover:not(:disabled) {
-      background: var(--primary);
+      background: var(--primary-accent);
       color: #ffffff !important;
       transform: translateY(-1px);
-    }
-  }
-}
-
-// Specific button text color fixes
-.bg-blue-600 {
-  .text-white {
-    color: #ffffff !important;
-  }
-}
-
-button[type="submit"],
-a[href*="/arac-degerle"] {
-  &.bg-blue-600 {
-    color: #ffffff !important;
-    
-    &:hover {
-      color: #ffffff !important;
     }
   }
 }
@@ -205,17 +238,17 @@ a[href*="/arac-degerle"] {
 .form-input {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--border-primary);
   border-radius: 0.5rem;
   font-size: 0.875rem;
   color: var(--text-primary);
-  background-color: var(--background);
+  background-color: var(--bg-card);
   transition: all 0.2s ease;
   
   &:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
   }
   
   &::placeholder {
@@ -230,11 +263,11 @@ a[href*="/arac-degerle"] {
 
 // Corporate Card styles
 .card {
-  background-color: var(--background);
-  border: 1px solid var(--border);
+  background: var(--gradient-card);
+  border: 1px solid var(--border-primary);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-md);
   transition: all 0.2s ease;
   
   &:hover {
@@ -245,7 +278,7 @@ a[href*="/arac-degerle"] {
   &-header {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-primary);
   }
   
   &-title {
@@ -278,12 +311,12 @@ a[href*="/arac-degerle"] {
     
     &:hover {
       color: var(--text-primary);
-      background-color: var(--accent);
+      background-color: var(--bg-secondary);
     }
     
     &.active {
-      color: var(--primary);
-      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary-accent);
+      background-color: rgba(96, 165, 250, 0.1);
     }
   }
 }
@@ -292,7 +325,7 @@ a[href*="/arac-degerle"] {
 .progress {
   width: 100%;
   height: 0.5rem;
-  background-color: var(--border);
+  background-color: var(--border-primary);
   border-radius: 0.25rem;
   overflow: hidden;
   
@@ -314,22 +347,58 @@ a[href*="/arac-degerle"] {
   font-weight: 600;
   
   &-success {
-    background: var(--gradient-success);
+    background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
     color: #ffffff;
   }
   
   &-warning {
-    background: var(--gradient-warning);
+    background: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
     color: #ffffff;
   }
   
   &-error {
-    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    background: linear-gradient(135deg, var(--error) 0%, var(--error-dark) 100%);
     color: #ffffff;
   }
 }
 
-// Utility classes for better contrast
+// Theme switcher styles
+.theme-switcher {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  
+  &-button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.25rem;
+    border: none;
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    
+    &.active {
+      background: var(--primary-accent);
+      color: #ffffff;
+    }
+  }
+}
+
+// Utility classes
 .text-high-contrast {
   color: var(--text-primary) !important;
 }
@@ -343,15 +412,15 @@ a[href*="/arac-degerle"] {
 }
 
 .bg-high-contrast {
-  background-color: var(--background) !important;
+  background-color: var(--bg-primary) !important;
 }
 
 .bg-medium-contrast {
-  background-color: var(--accent) !important;
+  background-color: var(--bg-secondary) !important;
 }
 
 .border-high-contrast {
-  border-color: var(--border-dark) !important;
+  border-color: var(--border-primary) !important;
 }
 
 // Responsive improvements
@@ -374,7 +443,7 @@ a[href*="/arac-degerle"] {
   }
 }
 
-// Corporate Animation utilities
+// Animation utilities
 .fade-in {
   animation: fadeIn 0.3s ease-in;
 }
@@ -407,7 +476,7 @@ a[href*="/arac-degerle"] {
 
 // Focus styles for accessibility
 *:focus {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--primary-accent);
   outline-offset: 2px;
 }
 
