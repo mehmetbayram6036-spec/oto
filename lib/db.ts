@@ -165,7 +165,11 @@ export async function addCarSubmission(data: Omit<CarSubmission, 'id' | 'created
         ${data.district}, ${data.carValue}
       ) RETURNING *
     `;
-    return result.rows[0];
+    return {
+      ...result.rows[0],
+      id: result.rows[0].id.toString(),
+      created_at: new Date(result.rows[0].created_at)
+    } as CarSubmission;
   } catch (error) {
     console.error('Araç değerleme talebi eklenirken hata:', error);
     throw error;
@@ -178,7 +182,11 @@ export async function getAllCarSubmissions(): Promise<CarSubmission[]> {
     const result = await sql`
       SELECT * FROM car_submissions ORDER BY created_at DESC
     `;
-    return result.rows;
+    return result.rows.map(row => ({
+      ...row,
+      id: row.id.toString(),
+      created_at: new Date(row.created_at)
+    })) as CarSubmission[];
   } catch (error) {
     console.error('Araç değerleme talepleri getirilirken hata:', error);
     throw error;
@@ -193,7 +201,11 @@ export async function addContactMessage(data: Omit<ContactMessage, 'id' | 'creat
       VALUES (${data.name}, ${data.email}, ${data.phone}, ${data.message})
       RETURNING *
     `;
-    return result.rows[0];
+    return {
+      ...result.rows[0],
+      id: result.rows[0].id.toString(),
+      created_at: new Date(result.rows[0].created_at)
+    } as ContactMessage;
   } catch (error) {
     console.error('İletişim mesajı eklenirken hata:', error);
     throw error;
@@ -206,7 +218,11 @@ export async function getAllContactMessages(): Promise<ContactMessage[]> {
     const result = await sql`
       SELECT * FROM contact_messages ORDER BY created_at DESC
     `;
-    return result.rows;
+    return result.rows.map(row => ({
+      ...row,
+      id: row.id.toString(),
+      created_at: new Date(row.created_at)
+    })) as ContactMessage[];
   } catch (error) {
     console.error('İletişim mesajları getirilirken hata:', error);
     throw error;
@@ -238,7 +254,11 @@ export async function upsertSystemSetting(key: string, value: string, descriptio
         updated_at = CURRENT_TIMESTAMP
       RETURNING *
     `;
-    return result.rows[0];
+    return {
+      ...result.rows[0],
+      id: result.rows[0].id.toString(),
+      updated_at: new Date(result.rows[0].updated_at)
+    } as SystemSettings;
   } catch (error) {
     console.error('Sistem ayarı güncellenirken hata:', error);
     throw error;
@@ -251,7 +271,14 @@ export async function getJsonData(name: string): Promise<JsonData | null> {
     const result = await sql`
       SELECT * FROM json_data WHERE name = ${name}
     `;
-    return result.rows[0] || null;
+    if (result.rows[0]) {
+      return {
+        ...result.rows[0],
+        id: result.rows[0].id.toString(),
+        updated_at: new Date(result.rows[0].updated_at)
+      } as JsonData;
+    }
+    return null;
   } catch (error) {
     console.error('JSON veri getirilirken hata:', error);
     throw error;
@@ -270,7 +297,11 @@ export async function upsertJsonData(name: string, data: string, description?: s
         updated_at = CURRENT_TIMESTAMP
       RETURNING *
     `;
-    return result.rows[0];
+    return {
+      ...result.rows[0],
+      id: result.rows[0].id.toString(),
+      updated_at: new Date(result.rows[0].updated_at)
+    } as JsonData;
   } catch (error) {
     console.error('JSON veri güncellenirken hata:', error);
     throw error;
@@ -283,7 +314,11 @@ export async function getAllJsonData(): Promise<JsonData[]> {
     const result = await sql`
       SELECT * FROM json_data ORDER BY updated_at DESC
     `;
-    return result.rows;
+    return result.rows.map(row => ({
+      ...row,
+      id: row.id.toString(),
+      updated_at: new Date(row.updated_at)
+    })) as JsonData[];
   } catch (error) {
     console.error('JSON veriler getirilirken hata:', error);
     throw error;
@@ -296,7 +331,14 @@ export async function getAdminStats(): Promise<AdminStats | null> {
     const result = await sql`
       SELECT * FROM admin_stats ORDER BY id DESC LIMIT 1
     `;
-    return result.rows[0] || null;
+    if (result.rows[0]) {
+      return {
+        ...result.rows[0],
+        id: result.rows[0].id.toString(),
+        updated_at: new Date(result.rows[0].updated_at)
+      } as AdminStats;
+    }
+    return null;
   } catch (error) {
     console.error('Admin istatistikleri getirilirken hata:', error);
     throw error;
@@ -311,7 +353,11 @@ export async function updateAdminStats(stats: Omit<AdminStats, 'id' | 'updated_a
       VALUES (${stats.totalValuations}, ${stats.totalUsers}, ${stats.totalEmails}, ${stats.successRate})
       RETURNING *
     `;
-    return result.rows[0];
+    return {
+      ...result.rows[0],
+      id: result.rows[0].id.toString(),
+      updated_at: new Date(result.rows[0].updated_at)
+    } as AdminStats;
   } catch (error) {
     console.error('Admin istatistikleri güncellenirken hata:', error);
     throw error;
