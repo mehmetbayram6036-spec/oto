@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-      title: "aracteklifi.com - Araç Değerleme ve Satış Platformu",
-    description: "Aracınızın gerçek değerini öğrenin ve güvenle satın. aracteklifi.com ile araç değerleme ve satış işlemlerinizi kolayca yapın.",
+  title: "aracteklifi.com - Araç Değerleme ve Satış Platformu",
+  description: "Aracınızın gerçek değerini öğrenin ve güvenle satın. aracteklifi.com ile araç değerleme ve satış işlemlerinizi kolayca yapın.",
 };
 
 export default function RootLayout({

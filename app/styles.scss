@@ -98,7 +98,7 @@ a {
   }
 }
 
-// Button styles
+// Button styles - Fixed for bright white text
 .btn {
   display: inline-flex;
   align-items: center;
@@ -120,10 +120,11 @@ a {
   
   &-primary {
     background-color: var(--primary);
-    color: white;
+    color: #ffffff !important;
     
     &:hover:not(:disabled) {
       background-color: var(--primary-dark);
+      color: #ffffff !important;
     }
   }
   
@@ -144,7 +145,25 @@ a {
     
     &:hover:not(:disabled) {
       background-color: var(--primary);
-      color: white;
+      color: #ffffff !important;
+    }
+  }
+}
+
+// Specific button text color fixes
+.bg-blue-600 {
+  .text-white {
+    color: #ffffff !important;
+  }
+}
+
+button[type="submit"],
+a[href*="/arac-degerle"] {
+  &.bg-blue-600 {
+    color: #ffffff !important;
+    
+    &:hover {
+      color: #ffffff !important;
     }
   }
 }
