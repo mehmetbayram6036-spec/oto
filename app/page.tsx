@@ -89,7 +89,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Side - Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-blue-600 mb-6 leading-tight">
                 Aracınızın Gerçek Değerini
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">Öğrenin</span>
               </h1>
@@ -262,7 +262,7 @@ export default function Home() {
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <TrendingUp className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Kilometre Etkisi</h3>
+                <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Kilometre Etkisi</h3>
                 <p className="text-gray-600 text-sm">Aracınızın kilometresi değerini nasıl etkiler?</p>
               </div>
               
@@ -292,7 +292,7 @@ export default function Home() {
                 <div className="bg-gradient-to-r from-green-500 to-emerald-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Yaş Etkisi</h3>
+                <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Yaş Etkisi</h3>
                 <p className="text-gray-600 text-sm">Aracınızın yaşı değerini nasıl etkiler?</p>
               </div>
               
@@ -322,7 +322,7 @@ export default function Home() {
                 <div className="bg-gradient-to-r from-purple-600 to-pink-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Award className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Durum Etkisi</h3>
+                <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Durum Etkisi</h3>
                 <p className="text-gray-600 text-sm">Aracınızın durumu değerini nasıl etkiler?</p>
               </div>
               
@@ -349,7 +349,7 @@ export default function Home() {
 
           {/* Interactive Demo */}
           <div className="mt-8 md:mt-12 bg-white rounded-2xl p-6 md:p-8 text-gray-900 text-center shadow-xl">
-            <h3 className="text-xl md:text-2xl font-bold mb-4">Gerçek Zamanlı Değerleme</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-blue-600 mb-4">Gerçek Zamanlı Değerleme</h3>
             <p className="text-gray-600 mb-6">
               Yukarıdaki sliders'ları kullanarak farklı senaryoları test edin ve aracınızın değerinin nasıl değiştiğini görün
             </p>
@@ -367,7 +367,7 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
               Neden aracteklifi.com?
             </h2>
             <p className="text-base md:text-lg text-gray-600">
@@ -380,9 +380,9 @@ export default function Home() {
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Calculator className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
-                Hızlı Değerleme
-              </h3>
+                              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+                  Hızlı Değerleme
+                </h3>
               <p className="text-gray-600 text-sm md:text-base">
                 5 dakika içinde aracınızın detaylı değerleme raporunu alın
               </p>
@@ -392,9 +392,9 @@ export default function Home() {
               <div className="bg-gradient-to-r from-green-500 to-emerald-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Shield className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
-                Güvenilir Sonuçlar
-              </h3>
+                              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+                  Güvenilir Sonuçlar
+                </h3>
               <p className="text-gray-600 text-sm md:text-base">
                 Piyasa verilerine dayalı %95 doğruluk oranı ile değerleme
               </p>
@@ -404,9 +404,9 @@ export default function Home() {
               <div className="bg-gradient-to-r from-purple-500 to-pink-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
-                7/24 Hizmet
-              </h3>
+                              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+                  7/24 Hizmet
+                </h3>
               <p className="text-gray-600 text-sm md:text-base">
                 İstediğiniz zaman araç değerleme hizmetimizden yararlanın
               </p>
@@ -419,7 +419,7 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
               Nasıl Çalışır?
             </h2>
             <p className="text-base md:text-lg text-gray-600">
@@ -432,7 +432,7 @@ export default function Home() {
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-lg">
                 1
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                 Araç Bilgilerini Girin
               </h3>
               <p className="text-gray-600 text-sm md:text-base">
@@ -444,7 +444,7 @@ export default function Home() {
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-lg">
                 2
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                 Anında Değerleme
               </h3>
               <p className="text-gray-600 text-sm md:text-base">
@@ -456,7 +456,7 @@ export default function Home() {
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-lg">
                 3
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
                 Detaylı Rapor Alın
               </h3>
               <p className="text-gray-600 text-sm md:text-base">
