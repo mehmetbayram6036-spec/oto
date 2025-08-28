@@ -5,11 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build-static": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "export": "next build && next export",
-    "vercel-build": "next build"
+    "lint": "next lint"
   },
   "dependencies": {
     "@types/nodemailer": "^7.0.0",
