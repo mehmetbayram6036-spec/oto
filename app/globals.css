@@ -1,17 +1,20 @@
+/* Tailwind CSS Base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom CSS Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
   --secondary: #64748b;
   --accent: #f59e0b;
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
+  --background: #ffffff;
+  --foreground: #171717;
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
@@ -24,6 +27,7 @@
   --gray-900: #111827;
 }
 
+/* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -31,38 +35,46 @@
   }
 }
 
+/* Base Styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom Component Styles */
 @layer components {
   /* Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
   .btn-primary {
-    @apply bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors;
+    @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 transition-colors;
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500;
   }
   
   .btn-success {
-    @apply bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors;
+    @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
   }
   
   .btn-warning {
-    @apply bg-yellow-500 text-gray-800 px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition-colors;
+    @apply bg-yellow-500 text-gray-800 hover:bg-yellow-600 focus:ring-yellow-500;
   }
   
   .btn-danger {
-    @apply bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors;
+    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
   }
 
   /* Form Input Styles */
   .form-input {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900;
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 transition-colors;
   }
   
   .form-input:disabled {
@@ -70,7 +82,7 @@ body {
   }
   
   .form-select {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 appearance-none cursor-pointer;
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 appearance-none cursor-pointer transition-colors;
   }
   
   .form-select:disabled {
@@ -83,7 +95,7 @@ body {
   }
   
   .card-hover {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow;
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200;
   }
 
   /* Progress Bar Styles */
@@ -255,6 +267,26 @@ body {
   .grid-responsive {
     @apply grid md:grid-cols-2 lg:grid-cols-3 gap-8;
   }
+
+  /* Form Container */
+  .form-container {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20;
+  }
+
+  /* Logo Styles */
+  .logo-text {
+    @apply text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent;
+  }
+
+  /* WhatsApp Button */
+  .whatsapp-btn {
+    @apply bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 transition-colors;
+  }
+
+  /* Instagram Button */
+  .instagram-btn {
+    @apply bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors;
+  }
 }
 
 /* Custom Animations */
@@ -325,4 +357,39 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Selection Styles */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: white;
 }
