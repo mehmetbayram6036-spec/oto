@@ -1,12 +1,14 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Car, CheckCircle } from 'lucide-react';
 
 function Step8Content() {
   const searchParams = useSearchParams();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
   const brand = searchParams.get('brand') || '';
   const model = searchParams.get('model') || '';
   const year = searchParams.get('year') || '';
@@ -37,6 +39,60 @@ function Step8Content() {
   } catch (e) {
     hasarData = {};
   }
+
+  // Veritabanına kaydet
+  useEffect(() => {
+    const saveToDatabase = async () => {
+      if (!brand || !model || !year) return;
+      
+      setIsSubmitting(true);
+      try {
+        const response = await fetch('/api/car-submissions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            brand,
+            model,
+            year,
+            hasar: JSON.stringify(hasarData),
+            agirHasar,
+            tramerDurumu,
+            tramerTutari,
+            kompleOrijinal,
+            kilometer,
+            licensePlate,
+            carPackage,
+            fuelType,
+            transmission,
+            condition,
+            sunroof,
+            panoramicRoof,
+            firstName,
+            lastName,
+            phone,
+            city,
+            district,
+            carValue: parseInt(carValue) || 0
+          })
+        });
+
+        if (response.ok) {
+          setSubmitMessage('Değerleme talebiniz başarıyla kaydedildi!');
+        } else {
+          setSubmitMessage('Değerleme talebi kaydedilirken bir hata oluştu.');
+        }
+      } catch (error) {
+        console.error('Veritabanına kaydetme hatası:', error);
+        setSubmitMessage('Değerleme talebi kaydedilirken bir hata oluştu.');
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
+
+    saveToDatabase();
+  }, [brand, model, year, hasar, agirHasar, tramerDurumu, tramerTutari, kompleOrijinal, kilometer, licensePlate, carPackage, fuelType, transmission, condition, sunroof, panoramicRoof, firstName, lastName, phone, city, district, carValue]);
 
   if (!brand || !model || !year) {
     return (
@@ -97,6 +153,17 @@ function Step8Content() {
           <div className="text-2xl text-green-700">
             En kısa sürede sizinle iletişime geçilecektir
           </div>
+          {isSubmitting && (
+            <div className="mt-4 text-blue-600">
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mx-auto mb-2"></div>
+              Veritabanına kaydediliyor...
+            </div>
+          )}
+          {submitMessage && (
+            <div className={`mt-4 text-sm ${submitMessage.includes('başarıyla') ? 'text-green-600' : 'text-red-600'}`}>
+              {submitMessage}
+            </div>
+          )}
         </div>
 
         {/* Değerleme Talebi Özeti */}

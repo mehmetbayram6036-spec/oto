@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "init-db": "tsx scripts/init-db.ts"
   },
   "dependencies": {
     "@types/nodemailer": "^7.0.0",
+    "@types/pg": "^8.15.5",
+    "@vercel/postgres": "^0.10.0",
     "lucide-react": "^0.539.0",
     "next": "15.4.6",
     "nodemailer": "^7.0.5",
@@ -24,6 +27,7 @@
     "@types/react-dom": "^19",
     "sass": "^1.91.0",
     "tailwindcss": "^4",
+    "tsx": "^4.20.5",
     "typescript": "^5"
   }
 }

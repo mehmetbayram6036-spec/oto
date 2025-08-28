@@ -1,9 +1,50 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { Car, Phone, Mail, Instagram, MapPin, Clock, MessageCircle } from 'lucide-react';
 
 export default function Iletisim() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitMessage('Lütfen tüm gerekli alanları doldurun.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/contact-messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitMessage('Mesajınız başarıyla gönderildi!');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setSubmitMessage('Mesaj gönderilirken bir hata oluştu.');
+      }
+    } catch (error) {
+      console.error('Mesaj gönderme hatası:', error);
+      setSubmitMessage('Mesaj gönderilirken bir hata oluştu.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
@@ -122,16 +163,19 @@ export default function Iletisim() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Bize Ulaşın
           </h2>
-          <form className="max-w-2xl mx-auto space-y-6">
+          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Ad Soyad
+                  Ad Soyad *
                 </label>
                 <input
                   type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Adınız ve soyadınız"
+                  required
                 />
               </div>
               <div>
@@ -140,6 +184,8 @@ export default function Iletisim() {
                 </label>
                 <input
                   type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Telefon numaranız"
                 />
@@ -147,42 +193,50 @@ export default function Iletisim() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                E-posta
+                E-posta *
               </label>
               <input
                 type="email"
+                value={formData.email}
+                onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="E-posta adresiniz"
+                required
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Konu
-              </label>
-              <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                <option value="">Konu seçin</option>
-                <option value="arac-degerleme">Araç Değerleme</option>
-                <option value="arac-satis">Araç Satış</option>
-                <option value="genel-bilgi">Genel Bilgi</option>
-                <option value="sikayet">Şikayet/Öneri</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Mesaj
+                Mesaj *
               </label>
               <textarea
                 rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Mesajınızı yazın..."
+                required
               ></textarea>
             </div>
+            {submitMessage && (
+              <div className={`text-center p-3 rounded-lg ${
+                submitMessage.includes('başarıyla') 
+                  ? 'bg-green-100 text-green-700' 
+                  : 'bg-red-100 text-red-700'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                disabled={isSubmitting}
+                className={`px-8 py-3 rounded-lg font-semibold transition-colors ${
+                  isSubmitting
+                    ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                }`}
               >
-                Mesaj Gönder
+                {isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder'}
               </button>
             </div>
           </form>
