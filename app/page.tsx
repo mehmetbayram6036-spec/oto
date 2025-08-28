@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 md:py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -376,7 +376,7 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center p-6">
+            <div className="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <div className="bg-blue-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calculator className="h-6 w-6 md:h-8 md:w-8 text-blue-600" />
               </div>
@@ -388,7 +388,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center p-6">
+            <div className="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <div className="bg-green-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-6 w-6 md:h-8 md:w-8 text-green-600" />
               </div>
@@ -400,7 +400,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center p-6">
+            <div className="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <div className="bg-purple-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-6 w-6 md:h-8 md:w-8 text-purple-600" />
               </div>
@@ -416,7 +416,7 @@ export default function Home() {
       </section>
 
       {/* How it Works Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -428,7 +428,7 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center">
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold">
                 1
               </div>
@@ -440,7 +440,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold">
                 2
               </div>
@@ -452,7 +452,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold">
                 3
               </div>
@@ -492,17 +492,17 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Aracınızın Değerini Öğrenmeye Hazır mısınız?
           </h2>
-          <p className="text-base md:text-lg text-gray-600 mb-8">
+          <p className="text-base md:text-lg text-blue-100 mb-8">
             Ücretsiz değerleme hizmetimizden yararlanın ve aracınızı en iyi fiyata satın
           </p>
           <Link 
             href="/arac-degerle"
-            className="bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-blue-700 transition-colors inline-block shadow-lg hover:shadow-xl"
+            className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-gray-100 transition-colors inline-block shadow-lg hover:shadow-xl"
           >
             Hemen Başlayın
           </Link>
