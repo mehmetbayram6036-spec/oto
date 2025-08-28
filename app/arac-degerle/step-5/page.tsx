@@ -35,6 +35,31 @@ function calculateCarValue(
   return Math.round(finalValue);
 }
 
+// Araç fiyatını year-based-car-data.json'dan bul
+async function findCarPrice(brand: string, model: string, year: string): Promise<number | null> {
+  try {
+    const response = await fetch('/year-based-car-data.json');
+    const data = await response.json();
+    
+    // Yıla göre araç verilerini bul
+    const yearData = data[year];
+    if (!yearData) return null;
+    
+    // Marka ve modele göre araç fiyatını bul
+    for (const car of yearData) {
+      if (car.marka.toLowerCase() === brand.toLowerCase() && 
+          car.model.toLowerCase() === model.toLowerCase()) {
+        return car.fiyat || null;
+      }
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Araç fiyatı bulunamadı:', error);
+    return null;
+  }
+}
+
 function Step5Content() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
@@ -63,31 +88,41 @@ function Step5Content() {
   const hasarData = hasar ? JSON.parse(decodeURIComponent(hasar)) : {};
 
   useEffect(() => {
-    // Simüle edilmiş işlem süresi
-    setTimeout(() => {
-      setIsLoading(false);
-      
-      // Temel araç değeri (örnek: 200.000 TL)
-      const baseValue = 200000;
-      
-      // Değerleme hesaplaması
-      const calculatedValue = calculateCarValue(baseValue, hasarData, tramerDurumu, tramerTutari);
-      
-      // Hesaplama detayları
-      const details = {
-        baseValue,
-        kaskoDiscount: baseValue * 0.05,
-        paintedParts: Object.values(hasarData).filter(damage => damage === 'Boyalı').length,
-        replacedParts: Object.values(hasarData).filter(damage => damage === 'Değişen').length,
-        paintedDiscount: Object.values(hasarData).filter(damage => damage === 'Boyalı').length * 0.001 * baseValue,
-        replacedDiscount: Object.values(hasarData).filter(damage => damage === 'Değişen').length * 0.005 * baseValue,
-        finalValue: calculatedValue
-      };
-      
-      setCarValue(calculatedValue);
-      setCalculationDetails(details);
-    }, 2000);
-  }, [hasarData, tramerDurumu, tramerTutari]);
+    const calculateValue = async () => {
+      try {
+        // Gerçek araç fiyatını bul
+        const carPrice = await findCarPrice(brand, model, year);
+        
+        // Eğer araç fiyatı bulunamazsa varsayılan değer kullan
+        const baseValue = carPrice || 200000;
+        
+        // Değerleme hesaplaması
+        const calculatedValue = calculateCarValue(baseValue, hasarData, tramerDurumu, tramerTutari);
+        
+        // Hesaplama detayları
+        const details = {
+          baseValue,
+          kaskoDiscount: baseValue * 0.05,
+          paintedParts: Object.values(hasarData).filter(damage => damage === 'Boyalı').length,
+          replacedParts: Object.values(hasarData).filter(damage => damage === 'Değişen').length,
+          paintedDiscount: Object.values(hasarData).filter(damage => damage === 'Boyalı').length * 0.001 * baseValue,
+          replacedDiscount: Object.values(hasarData).filter(damage => damage === 'Değişen').length * 0.005 * baseValue,
+          finalValue: calculatedValue,
+          carPriceFound: carPrice !== null
+        };
+        
+        setCarValue(calculatedValue);
+        setCalculationDetails(details);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Değerleme hesaplama hatası:', error);
+        setIsLoading(false);
+      }
+    };
+
+    // 2 saniye bekle ve hesapla
+    setTimeout(calculateValue, 2000);
+  }, [brand, model, year, hasarData, tramerDurumu, tramerTutari]);
 
   if (!brand || !model || !year) {
     return (

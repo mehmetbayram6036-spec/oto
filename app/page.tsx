@@ -36,27 +36,27 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900" style={{ background: 'var(--gradient-dark)' }}>
       {/* Header */}
-      <header className="bg-slate-800/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-slate-700">
+      <header className="bg-slate-800/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-slate-700" style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-primary)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <div>
-                <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   aracteklifi.com
                 </h1>
-                <div className="text-lg text-slate-300 font-medium">Araç Değerleme</div>
+                <div className="text-lg text-slate-300 font-medium" style={{ color: 'var(--text-secondary)' }}>Araç Değerleme</div>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
+              <Link href="/" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>
                 Ana Sayfa
               </Link>
-              <Link href="/arac-degerle" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
+              <Link href="/arac-degerle" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>
                 Araç Değerle
               </Link>
-              <Link href="/iletisim" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
+              <Link href="/iletisim" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>
                 İletişim
               </Link>
             </nav>
@@ -64,6 +64,7 @@ export default function Home() {
               <Link 
                 href="/arac-degerle"
                 className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md"
+                style={{ backgroundColor: 'var(--primary)', color: 'white' }}
               >
                 Aracını Sat
               </Link>
@@ -89,11 +90,11 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Side - Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6" style={{ color: 'var(--text-primary)' }}>
                 Aracınızın Gerçek Değerini
-                <span className="text-blue-400 block">Öğrenin</span>
+                <span className="text-blue-400 block" style={{ color: 'var(--text-accent)' }}>Öğrenin</span>
               </h1>
-              <p className="text-xl text-slate-300 mb-8 max-w-2xl lg:max-w-none">
+              <p className="text-xl text-slate-300 mb-8 max-w-2xl lg:max-w-none" style={{ color: 'var(--text-secondary)' }}>
                 aracteklifi.com ile aracınızın piyasa değerini dakikalar içinde öğrenin. 
                 Güvenilir ve şeffaf değerleme sistemi ile aracınızı en iyi fiyata satın.
               </p>

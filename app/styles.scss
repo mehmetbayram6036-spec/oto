@@ -82,8 +82,18 @@
   --primary-light: #3b82f6;
   --primary-accent: #60a5fa;
   
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-accent: #60a5fa;
+  
   --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
   --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  --gradient-card: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
 
 // Green Corporate Theme
@@ -93,8 +103,18 @@
   --primary-light: #10b981;
   --primary-accent: #34d399;
   
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-accent: #34d399;
+  
   --gradient-primary: linear-gradient(135deg, #059669 0%, #047857 100%);
   --gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-card: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
 
 // Purple Corporate Theme
@@ -104,8 +124,18 @@
   --primary-light: #8b5cf6;
   --primary-accent: #a78bfa;
   
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-accent: #a78bfa;
+  
   --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
   --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  --gradient-card: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
 
 // Red Corporate Theme
@@ -115,8 +145,18 @@
   --primary-light: #ef4444;
   --primary-accent: #f87171;
   
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-accent: #f87171;
+  
   --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
   --gradient-accent: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --gradient-card: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
 
 // Base styles

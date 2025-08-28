@@ -186,7 +186,16 @@ export default function AdminPage() {
 
       // DOM'a tema uygula
       document.documentElement.setAttribute('data-theme', themeId);
+      
+      // LocalStorage'a kaydet
+      localStorage.setItem('active_theme', themeId);
+      
       setMessage('Tema başarıyla değiştirildi');
+      
+      // Sayfayı yenile (tema değişikliğinin tam olarak uygulanması için)
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } catch (error) {
       console.error('Tema değiştirilirken hata:', error);
       setMessage('Tema değiştirilirken bir hata oluştu');
