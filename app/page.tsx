@@ -36,14 +36,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   aracteklifi.com
                 </h1>
                 <div className="text-sm md:text-base text-gray-600 font-medium">Araç Değerleme</div>
@@ -63,7 +63,7 @@ export default function Home() {
             <div className="flex items-center space-x-3">
               <Link 
                 href="/arac-degerle"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Aracını Sat
               </Link>
@@ -91,7 +91,7 @@ export default function Home() {
             <div className="text-center lg:text-left order-2 lg:order-1">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Aracınızın Gerçek Değerini
-                <span className="text-blue-600 block">Öğrenin</span>
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">Öğrenin</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl lg:max-w-none leading-relaxed">
                 aracteklifi.com ile aracınızın piyasa değerini dakikalar içinde öğrenin. 
@@ -100,7 +100,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link 
                   href="/arac-degerle"
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
                 >
                   Hemen Değerle
                 </Link>
@@ -108,11 +108,11 @@ export default function Home() {
             </div>
 
             {/* Right Side - Car Valuation Form */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl border border-white/20 order-1 lg:order-2">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-2xl border border-white/30 order-1 lg:order-2">
               {/* Logo and Branding */}
               <div className="flex items-center mb-6">
                 <div className="relative">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                     <Car className="h-6 w-6 md:h-8 md:w-8 text-white" />
                   </div>
                   <div className="absolute -top-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-white rounded-full flex items-center justify-center">
@@ -130,7 +130,7 @@ export default function Home() {
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                   Aracını aracteklifi.com güvencesi ile hemen sat,
                 </h3>
-                <p className="text-base md:text-lg font-semibold text-blue-600">
+                <p className="text-base md:text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Aracınıza kapınızda bakalım
                 </p>
               </div>
@@ -214,11 +214,11 @@ export default function Home() {
                 <button 
                   type="submit"
                   disabled={!modelYear || !brand}
-                  className={`w-full py-3 md:py-4 rounded-lg font-bold text-base md:text-lg transition-colors ${
-                    modelYear && brand 
-                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl' 
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  }`}
+                                      className={`w-full py-3 md:py-4 rounded-xl font-bold text-base md:text-lg transition-all duration-300 ${
+                      modelYear && brand 
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5' 
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    }`}
                 >
                   ÜCRETSİZ TEKLİF AL
                 </button>
@@ -236,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* Sliders Section */}
-      <section className="py-12 md:py-16 bg-blue-600 relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-10">
           <img 
@@ -257,9 +257,9 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Slider 1: Kilometre Etkisi */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
-                <div className="bg-blue-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <TrendingUp className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Kilometre Etkisi</h3>
@@ -287,9 +287,9 @@ export default function Home() {
             </div>
 
             {/* Slider 2: Yaş Etkisi */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
-                <div className="bg-green-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-gradient-to-r from-green-500 to-emerald-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Yaş Etkisi</h3>
@@ -317,9 +317,9 @@ export default function Home() {
             </div>
 
             {/* Slider 3: Durum Etkisi */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1">
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 md:col-span-2 lg:col-span-1">
               <div className="text-center mb-6">
-                <div className="bg-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-gradient-to-r from-purple-600 to-pink-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Award className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Durum Etkisi</h3>
@@ -348,14 +348,14 @@ export default function Home() {
           </div>
 
           {/* Interactive Demo */}
-          <div className="mt-8 md:mt-12 bg-white rounded-2xl p-6 md:p-8 text-gray-900 text-center shadow-lg">
+          <div className="mt-8 md:mt-12 bg-white rounded-2xl p-6 md:p-8 text-gray-900 text-center shadow-xl">
             <h3 className="text-xl md:text-2xl font-bold mb-4">Gerçek Zamanlı Değerleme</h3>
             <p className="text-gray-600 mb-6">
               Yukarıdaki sliders'ları kullanarak farklı senaryoları test edin ve aracınızın değerinin nasıl değiştiğini görün
             </p>
             <Link 
               href="/arac-degerle"
-              className="bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Gerçek Değerleme Yapın
             </Link>
@@ -376,9 +376,9 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <div className="bg-blue-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calculator className="h-6 w-6 md:h-8 md:w-8 text-blue-600" />
+            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl hover:from-blue-100 hover:to-purple-100 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Calculator className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                 Hızlı Değerleme
@@ -388,9 +388,9 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <div className="bg-green-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-6 w-6 md:h-8 md:w-8 text-green-600" />
+            <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl hover:from-green-100 hover:to-emerald-100 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-green-500 to-emerald-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Shield className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                 Güvenilir Sonuçlar
@@ -400,9 +400,9 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <div className="bg-purple-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-6 w-6 md:h-8 md:w-8 text-purple-600" />
+            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl hover:from-purple-100 hover:to-pink-100 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-purple-500 to-pink-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                 7/24 Hizmet
@@ -428,8 +428,8 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold">
+            <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-lg">
                 1
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
@@ -440,8 +440,8 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold">
+            <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-lg">
                 2
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
@@ -452,8 +452,8 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold">
+            <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-lg">
                 3
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
@@ -468,7 +468,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 md:py-16 bg-blue-600 text-white">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             <div>
@@ -492,7 +492,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Aracınızın Değerini Öğrenmeye Hazır mısınız?
@@ -502,7 +502,7 @@ export default function Home() {
           </p>
           <Link 
             href="/arac-degerle"
-            className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-gray-100 transition-colors inline-block shadow-lg hover:shadow-xl"
+            className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-gray-100 transition-all duration-300 inline-block shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
           >
             Hemen Başlayın
           </Link>
