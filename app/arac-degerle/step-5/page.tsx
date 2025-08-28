@@ -5,6 +5,36 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Car, Mail, MessageSquare, CheckCircle, Clock, User, Phone, MapPin } from 'lucide-react';
 
+// Araç değerleme hesaplama fonksiyonu
+function calculateCarValue(
+  baseValue: number,
+  hasarData: any,
+  tramerDurumu: string,
+  tramerTutari: string
+): number {
+  let finalValue = baseValue;
+  
+  // Kasko değerinin %5 altından başla
+  finalValue = baseValue * 0.95;
+  
+  // Tramer kaydı varsa ekstra düşüş yok (sadece %5 düşüş uygulanır)
+  
+  // Hasar bilgilerini kontrol et
+  if (hasarData && Object.keys(hasarData).length > 0) {
+    Object.entries(hasarData).forEach(([part, damage]) => {
+      if (damage === 'Boyalı') {
+        // Her boyalı parça için %0.10 düşüş
+        finalValue = finalValue * (1 - 0.001);
+      } else if (damage === 'Değişen') {
+        // Her değişen parça için %0.50 düşüş
+        finalValue = finalValue * (1 - 0.005);
+      }
+    });
+  }
+  
+  return Math.round(finalValue);
+}
+
 function Step5Content() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
@@ -27,6 +57,7 @@ function Step5Content() {
   const [isLoading, setIsLoading] = useState(true);
   const [emailSent, setEmailSent] = useState(false);
   const [carValue, setCarValue] = useState<number | null>(null);
+  const [calculationDetails, setCalculationDetails] = useState<any>(null);
 
   // Hasar bilgilerini parse et
   const hasarData = hasar ? JSON.parse(decodeURIComponent(hasar)) : {};
@@ -35,9 +66,28 @@ function Step5Content() {
     // Simüle edilmiş işlem süresi
     setTimeout(() => {
       setIsLoading(false);
-      setCarValue(150000); // Örnek değer
+      
+      // Temel araç değeri (örnek: 200.000 TL)
+      const baseValue = 200000;
+      
+      // Değerleme hesaplaması
+      const calculatedValue = calculateCarValue(baseValue, hasarData, tramerDurumu, tramerTutari);
+      
+      // Hesaplama detayları
+      const details = {
+        baseValue,
+        kaskoDiscount: baseValue * 0.05,
+        paintedParts: Object.values(hasarData).filter(damage => damage === 'Boyalı').length,
+        replacedParts: Object.values(hasarData).filter(damage => damage === 'Değişen').length,
+        paintedDiscount: Object.values(hasarData).filter(damage => damage === 'Boyalı').length * 0.001 * baseValue,
+        replacedDiscount: Object.values(hasarData).filter(damage => damage === 'Değişen').length * 0.005 * baseValue,
+        finalValue: calculatedValue
+      };
+      
+      setCarValue(calculatedValue);
+      setCalculationDetails(details);
     }, 2000);
-  }, []);
+  }, [hasarData, tramerDurumu, tramerTutari]);
 
   if (!brand || !model || !year) {
     return (
@@ -187,6 +237,61 @@ function Step5Content() {
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">
                     {carValue.toLocaleString('tr-TR')} TL
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Calculation Details */}
+            {calculationDetails && (
+              <div className="bg-gray-50 rounded-lg p-6 mb-8 text-left">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Hesaplama Detayları
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-gray-600">Temel Değer:</span>
+                      <span className="font-medium">{calculationDetails.baseValue.toLocaleString('tr-TR')} TL</span>
+                    </div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-gray-600">Kasko İndirimi (%5):</span>
+                      <span className="font-medium text-red-600">-{calculationDetails.kaskoDiscount.toLocaleString('tr-TR')} TL</span>
+                    </div>
+                    {calculationDetails.paintedParts > 0 && (
+                      <div className="flex justify-between mb-2">
+                        <span className="text-gray-600">Boyalı Parça ({calculationDetails.paintedParts} adet):</span>
+                        <span className="font-medium text-red-600">-{calculationDetails.paintedDiscount.toLocaleString('tr-TR')} TL</span>
+                      </div>
+                    )}
+                    {calculationDetails.replacedParts > 0 && (
+                      <div className="flex justify-between mb-2">
+                        <span className="text-gray-600">Değişen Parça ({calculationDetails.replacedParts} adet):</span>
+                        <span className="font-medium text-red-600">-{calculationDetails.replacedDiscount.toLocaleString('tr-TR')} TL</span>
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-gray-600">Tramer Durumu:</span>
+                      <span className="font-medium">{tramerDurumu}</span>
+                    </div>
+                    {tramerDurumu === 'Var' && tramerTutari && (
+                      <div className="flex justify-between mb-2">
+                        <span className="text-gray-600">Tramer Tutarı:</span>
+                        <span className="font-medium">{tramerTutari} TL</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between mb-2">
+                      <span className="text-gray-600">Toplam İndirim:</span>
+                      <span className="font-medium text-red-600">
+                        -{(calculationDetails.baseValue - calculationDetails.finalValue).toLocaleString('tr-TR')} TL
+                      </span>
+                    </div>
+                    <div className="flex justify-between font-semibold text-lg border-t pt-2">
+                      <span className="text-gray-900">Final Değer:</span>
+                      <span className="text-blue-600">{calculationDetails.finalValue.toLocaleString('tr-TR')} TL</span>
+                    </div>
                   </div>
                 </div>
               </div>
