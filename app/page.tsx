@@ -36,34 +36,34 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-slate-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-blue-600">
+                <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   aracteklifi.com
                 </h1>
-                <div className="text-sm md:text-base text-gray-600 font-medium">Araç Değerleme</div>
+                <div className="text-lg text-gray-500 font-medium">Araç Değerleme</div>
               </div>
             </div>
-            <nav className="hidden md:flex space-x-4">
-              <Link href="/" className="text-blue-600 px-3 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+            <nav className="hidden md:flex space-x-8">
+              <Link href="/" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 Ana Sayfa
               </Link>
-              <Link href="/arac-degerle" className="text-gray-700 px-3 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+              <Link href="/arac-degerle" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 Araç Değerle
               </Link>
-              <Link href="/iletisim" className="text-gray-700 px-3 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+              <Link href="/iletisim" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 İletişim
               </Link>
             </nav>
             <div className="flex items-center space-x-3">
               <Link 
                 href="/arac-degerle"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors text-sm shadow-sm"
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
               >
                 Aracını Sat
               </Link>
@@ -84,23 +84,23 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Side - Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
                 Aracınızın Gerçek Değerini
                 <span className="text-blue-600 block">Öğrenin</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl lg:max-w-none leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl lg:max-w-none">
                 aracteklifi.com ile aracınızın piyasa değerini dakikalar içinde öğrenin. 
                 Güvenilir ve şeffaf değerleme sistemi ile aracınızı en iyi fiyata satın.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link 
                   href="/arac-degerle"
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-md"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
                 >
                   Hemen Değerle
                 </Link>
@@ -108,29 +108,29 @@ export default function Home() {
             </div>
 
             {/* Right Side - Car Valuation Form */}
-            <div className="bg-white rounded-lg p-6 md:p-8 shadow-lg border border-gray-200 order-1 lg:order-2">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 order-1 lg:order-2">
               {/* Logo and Branding */}
               <div className="flex items-center mb-6">
                 <div className="relative">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
-                    <Car className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                    <Car className="h-8 w-8 text-white" />
                   </div>
                   <div className="absolute -top-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-white rounded-full flex items-center justify-center">
                     <span className="text-xs font-bold text-blue-600">B</span>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900">aracteklifi.com</h2>
-                  <p className="text-sm md:text-base text-gray-600">Araç Değerleme Platformu</p>
+                  <h2 className="text-2xl font-bold text-gray-900">aracteklifi.com</h2>
+                  <p className="text-base text-gray-600">Araç Değerleme Platformu</p>
                 </div>
               </div>
 
               {/* Main Call to Action */}
               <div className="mb-6">
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Aracını aracteklifi.com güvencesi ile hemen sat,
                 </h3>
-                <p className="text-base md:text-lg font-semibold text-blue-600">
+                <p className="text-lg font-semibold text-blue-600">
                   Aracınıza kapınızda bakalım
                 </p>
               </div>
@@ -145,7 +145,7 @@ export default function Home() {
                   <select
                     value={modelYear}
                     onChange={(e) => setModelYear(e.target.value)}
-                    className="w-full pl-10 md:pl-12 pr-4 py-3 md:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white appearance-none cursor-pointer text-sm md:text-base"
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
                     required
                   >
                     <option value="">Model Yılı Seçin</option>
@@ -170,7 +170,7 @@ export default function Home() {
                   <select
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className="w-full pl-10 md:pl-12 pr-4 py-3 md:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white appearance-none cursor-pointer text-sm md:text-base"
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
                     required
                   >
                     <option value="">Marka Seçin</option>
@@ -214,9 +214,9 @@ export default function Home() {
                 <button 
                   type="submit"
                   disabled={!modelYear || !brand}
-                                      className={`w-full py-3 md:py-4 rounded-lg font-bold text-base md:text-lg transition-colors ${
+                                      className={`w-full py-4 rounded-lg font-bold text-lg transition-colors ${
                       modelYear && brand 
-                        ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md' 
+                        ? 'bg-blue-600 text-white hover:bg-blue-700' 
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                 >
@@ -236,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* Sliders Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-blue-600 to-blue-800 relative overflow-hidden">
+      <section className="py-16 bg-white relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-10">
           <img 
@@ -246,24 +246,24 @@ export default function Home() {
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Değerleme Sürecinizi Keşfedin
             </h2>
-            <p className="text-base md:text-lg text-blue-100">
+            <p className="text-lg text-gray-600">
               Aracınızın değerini belirleyen faktörleri interaktif olarak inceleyin
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             {/* Slider 1: Kilometre Etkisi */}
-            <div className="bg-white rounded-lg p-6 md:p-8 shadow-md hover:shadow-lg transition-all duration-200">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
-                <div className="bg-blue-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <TrendingUp className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Kilometre Etkisi</h3>
-                <p className="text-gray-700 text-sm">Aracınızın kilometresi değerini nasıl etkiler?</p>
+                                  <h3 className="text-xl font-bold text-gray-900 mb-2">Kilometre Etkisi</h3>
+                  <p className="text-gray-600 text-sm">Aracınızın kilometresi değerini nasıl etkiler?</p>
               </div>
               
               <div className="space-y-4">
@@ -279,21 +279,21 @@ export default function Home() {
                     175.000 km
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-blue-600">₺285.000</div>
-                  <div className="text-sm text-gray-700">Tahmini Değer</div>
-                </div>
+                                  <div className="text-center">
+                    <div className="text-2xl font-bold text-blue-600">₺285.000</div>
+                    <div className="text-sm text-gray-600">Tahmini Değer</div>
+                  </div>
               </div>
             </div>
 
             {/* Slider 2: Yaş Etkisi */}
-            <div className="bg-white rounded-lg p-6 md:p-8 shadow-md hover:shadow-lg transition-all duration-200">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
-                <div className="bg-green-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Yaş Etkisi</h3>
-                <p className="text-gray-700 text-sm">Aracınızın yaşı değerini nasıl etkiler?</p>
+                                  <h3 className="text-xl font-bold text-gray-900 mb-2">Yaş Etkisi</h3>
+                  <p className="text-gray-600 text-sm">Aracınızın yaşı değerini nasıl etkiler?</p>
               </div>
               
               <div className="space-y-4">
@@ -309,21 +309,21 @@ export default function Home() {
                     2018
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-green-600">₺320.000</div>
-                  <div className="text-sm text-gray-700">Tahmini Değer</div>
-                </div>
+                                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-600">₺320.000</div>
+                    <div className="text-sm text-gray-600">Tahmini Değer</div>
+                  </div>
               </div>
             </div>
 
             {/* Slider 3: Durum Etkisi */}
-            <div className="bg-white rounded-lg p-6 md:p-8 shadow-md hover:shadow-lg transition-all duration-200 md:col-span-2 lg:col-span-1">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1">
               <div className="text-center mb-6">
-                <div className="bg-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <Award className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                <div className="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-2">Durum Etkisi</h3>
-                <p className="text-gray-700 text-sm">Aracınızın durumu değerini nasıl etkiler?</p>
+                                  <h3 className="text-xl font-bold text-gray-900 mb-2">Durum Etkisi</h3>
+                  <p className="text-gray-600 text-sm">Aracınızın durumu değerini nasıl etkiler?</p>
               </div>
               
               <div className="space-y-4">
@@ -339,23 +339,23 @@ export default function Home() {
                     Çok İyi
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-purple-600">₺295.000</div>
-                  <div className="text-sm text-gray-700">Tahmini Değer</div>
-                </div>
+                                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-600">₺295.000</div>
+                    <div className="text-sm text-gray-600">Tahmini Değer</div>
+                  </div>
               </div>
             </div>
           </div>
 
           {/* Interactive Demo */}
-          <div className="mt-8 md:mt-12 bg-white rounded-lg p-6 md:p-8 text-gray-900 text-center shadow-md">
-            <h3 className="text-xl md:text-2xl font-bold text-blue-600 mb-4">Gerçek Zamanlı Değerleme</h3>
-            <p className="text-gray-700 mb-6">
+          <div className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
+            <h3 className="text-2xl font-bold mb-4">Gerçek Zamanlı Değerleme</h3>
+            <p className="text-blue-100 mb-6">
               Yukarıdaki sliders'ları kullanarak farklı senaryoları test edin ve aracınızın değerinin nasıl değiştiğini görün
             </p>
             <Link 
               href="/arac-degerle"
-              className="bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block shadow-sm"
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
             >
               Gerçek Değerleme Yapın
             </Link>
@@ -364,50 +364,50 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Neden aracteklifi.com?
             </h2>
-            <p className="text-base md:text-lg text-gray-700">
+            <p className="text-lg text-gray-600">
               Binlerce kullanıcının güvendiği araç değerleme platformu
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
-              <div className="bg-blue-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                <Calculator className="h-6 w-6 md:h-8 md:w-8 text-white" />
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Calculator className="h-8 w-8 text-blue-600" />
               </div>
-                              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+                              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   Hızlı Değerleme
                 </h3>
-              <p className="text-gray-700 text-sm md:text-base">
+              <p className="text-gray-600">
                 5 dakika içinde aracınızın detaylı değerleme raporunu alın
               </p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
-              <div className="bg-green-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                <Shield className="h-6 w-6 md:h-8 md:w-8 text-white" />
+            <div className="text-center p-6">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-green-600" />
               </div>
-                              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+                              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   Güvenilir Sonuçlar
                 </h3>
-              <p className="text-gray-700 text-sm md:text-base">
+              <p className="text-gray-600">
                 Piyasa verilerine dayalı %95 doğruluk oranı ile değerleme
               </p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
-              <div className="bg-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
+            <div className="text-center p-6">
+              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-purple-600" />
               </div>
-                              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+                              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   7/24 Hizmet
                 </h3>
-              <p className="text-gray-700 text-sm md:text-base">
+              <p className="text-gray-600">
                 İstediğiniz zaman araç değerleme hizmetimizden yararlanın
               </p>
             </div>
@@ -416,50 +416,50 @@ export default function Home() {
       </section>
 
       {/* How it Works Section */}
-      <section className="py-12 md:py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Nasıl Çalışır?
             </h2>
-            <p className="text-base md:text-lg text-gray-700">
+            <p className="text-lg text-gray-600">
               3 basit adımda aracınızın değerini öğrenin
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
-              <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-sm">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 1
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Araç Bilgilerini Girin
               </h3>
-              <p className="text-gray-700 text-sm md:text-base">
+              <p className="text-gray-600">
                 Marka, model, yıl ve diğer detayları kolayca girin
               </p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
-              <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-sm">
+            <div className="text-center">
+              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 2
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Anında Değerleme
               </h3>
-              <p className="text-gray-700 text-sm md:text-base">
+              <p className="text-gray-600">
                 Yapay zeka destekli sistem ile anında değerleme yapılır
               </p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
-              <div className="bg-blue-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg md:text-xl font-bold shadow-sm">
+            <div className="text-center">
+              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 3
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-blue-600 mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Detaylı Rapor Alın
               </h3>
-              <p className="text-gray-700 text-sm md:text-base">
+              <p className="text-gray-600">
                 Piyasa analizi ve satış önerileri ile birlikte raporunuzu alın
               </p>
             </div>
@@ -468,7 +468,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+      <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             <div>
@@ -492,20 +492,20 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-blue-700 to-blue-800 text-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Aracınızın Değerini Öğrenmeye Hazır mısınız?
-          </h2>
-          <p className="text-base md:text-lg text-blue-100 mb-8">
-            Ücretsiz değerleme hizmetimizden yararlanın ve aracınızı en iyi fiyata satın
-          </p>
-          <Link 
-            href="/arac-degerle"
-            className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-gray-100 transition-colors inline-block shadow-md"
-          >
-            Hemen Başlayın
-          </Link>
+                      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Aracınızın Değerini Öğrenmeye Hazır mısınız?
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Ücretsiz değerleme hizmetimizden yararlanın ve aracınızı en iyi fiyata satın
+            </p>
+            <Link 
+              href="/arac-degerle"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors inline-block"
+            >
+              Hemen Başlayın
+            </Link>
         </div>
       </section>
 
