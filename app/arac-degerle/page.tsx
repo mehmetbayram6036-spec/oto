@@ -43,10 +43,10 @@ function AracDegerleContent() {
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   aracteklifi.com
                 </h1>
-                <div className="text-xs text-gray-500 font-medium">Araç Değerleme</div>
+                <div className="text-xs text-text-secondary font-medium">Araç Değerleme</div>
               </div>
             </Link>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-text-secondary">
               Adım 1 / 7
             </div>
           </div>

@@ -43,27 +43,27 @@ export default function Home() {
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
               <div>
-                <h1 className="logo-text">
+                <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   aracteklifi.com
                 </h1>
-                <div className="text-lg text-gray-500 font-medium">Araç Değerleme</div>
+                <div className="text-lg text-text-secondary font-medium">Araç Değerleme</div>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="btn btn-primary">
+              <Link href="/" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 Ana Sayfa
               </Link>
-              <Link href="/arac-degerle" className="btn btn-primary">
+              <Link href="/arac-degerle" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 Araç Değerle
               </Link>
-              <Link href="/iletisim" className="btn btn-primary">
+              <Link href="/iletisim" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 İletişim
               </Link>
             </nav>
             <div className="flex items-center space-x-3">
               <Link 
                 href="/arac-degerle"
-                className="btn btn-primary"
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
               >
                 Aracını Sat
               </Link>
@@ -71,7 +71,7 @@ export default function Home() {
                 href="https://wa.me/905443801545"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="whatsapp-btn"
+                className="bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 transition-colors"
                 title="WhatsApp ile iletişim"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -89,26 +89,27 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Content */}
             <div className="text-center lg:text-left">
-              <h1 className="hero-title">
+              <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
                 Aracınızın Gerçek Değerini
                 <span className="text-blue-600 block">Öğrenin</span>
               </h1>
-              <p className="hero-subtitle mb-8 max-w-2xl lg:max-w-none">
+              <p className="text-xl text-text-secondary mb-8 max-w-2xl lg:max-w-none">
                 aracteklifi.com ile aracınızın piyasa değerini dakikalar içinde öğrenin. 
                 Güvenilir ve şeffaf değerleme sistemi ile aracınızı en iyi fiyata satın.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link 
                   href="/arac-degerle"
-                  className="btn btn-primary text-lg px-8 py-4"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
                 >
                   Hemen Değerle
                 </Link>
+
               </div>
             </div>
 
             {/* Right Side - Car Valuation Form */}
-            <div className="form-container">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
               {/* Logo and Branding */}
               <div className="flex items-center mb-6">
                 <div className="relative">
@@ -120,14 +121,14 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h2 className="text-2xl font-bold text-gray-900">aracteklifi.com</h2>
-                  <p className="text-base text-gray-600">Araç Değerleme Platformu</p>
+                                <h2 className="text-2xl font-bold text-text-primary">aracteklifi.com</h2>
+              <p className="text-base text-text-secondary">Araç Değerleme Platformu</p>
                 </div>
               </div>
 
               {/* Main Call to Action */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-text-primary mb-2">
                   Aracını aracteklifi.com güvencesi ile hemen sat,
                 </h3>
                 <p className="text-lg font-semibold text-blue-600">
@@ -139,13 +140,13 @@ export default function Home() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Model Year Select */}
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
-                    <Car className="h-5 w-5 text-gray-400" />
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                    <Car className="h-5 w-5 text-text-muted" />
                   </div>
                   <select
                     value={modelYear}
                     onChange={(e) => setModelYear(e.target.value)}
-                    className="w-full pl-12 pr-10 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 appearance-none cursor-pointer transition-colors"
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
                     required
                   >
                     <option value="">Model Yılı Seçin</option>
@@ -164,13 +165,13 @@ export default function Home() {
 
                 {/* Brand Select */}
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
-                    <div className="w-5 h-5 bg-gray-400 rounded-sm"></div>
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                    <div className="w-5 h-5 bg-text-muted rounded-sm"></div>
                   </div>
                   <select
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className="w-full pl-12 pr-10 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 appearance-none cursor-pointer transition-colors"
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm appearance-none cursor-pointer"
                     required
                   >
                     <option value="">Marka Seçin</option>
@@ -204,9 +205,9 @@ export default function Home() {
                           }
                         }}
                       />
-                      <span className="text-xs font-bold text-gray-500 hidden">{brand.charAt(0)}</span>
+                      <span className="text-xs font-bold text-text-muted hidden">{brand.charAt(0)}</span>
                     </div>
-                    <span className="font-medium text-gray-900">{brand}</span>
+                    <span className="font-medium text-text-primary">{brand}</span>
                   </div>
                 )}
 
@@ -216,7 +217,7 @@ export default function Home() {
                   disabled={!modelYear || !brand}
                   className={`w-full py-4 rounded-lg font-bold text-lg transition-colors ${
                     modelYear && brand 
-                      ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' 
+                      ? 'bg-blue-600 text-white hover:bg-blue-700' 
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >
@@ -235,8 +236,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sliders Section - Removed car image background */}
+      {/* Sliders Section */}
       <section className="py-16 bg-blue-600 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="/car-valuation.png" 
+            alt="Car Valuation Background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
@@ -249,7 +258,7 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Slider 1: Kilometre Etkisi */}
-            <div className="feature-card">
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
                 <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-8 w-8 text-white" />
@@ -264,8 +273,8 @@ export default function Home() {
                   <span className="text-sm font-medium text-gray-700">500.000 km</span>
                 </div>
                 <div className="relative">
-                  <div className="progress-bar">
-                    <div className="progress-fill" style={{width: '35%'}}></div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 h-3 rounded-full transition-all duration-500" style={{width: '35%'}}></div>
                   </div>
                   <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 py-1 rounded-lg text-sm font-medium">
                     175.000 km
@@ -279,7 +288,7 @@ export default function Home() {
             </div>
 
             {/* Slider 2: Yaş Etkisi */}
-            <div className="feature-card">
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
                 <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="h-8 w-8 text-white" />
@@ -294,8 +303,8 @@ export default function Home() {
                   <span className="text-sm font-medium text-gray-700">1990</span>
                 </div>
                 <div className="relative">
-                  <div className="progress-bar">
-                    <div className="progress-fill" style={{width: '60%'}}></div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 h-3 rounded-full transition-all duration-500" style={{width: '60%'}}></div>
                   </div>
                   <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-3 py-1 rounded-lg text-sm font-medium">
                     2018
@@ -309,7 +318,7 @@ export default function Home() {
             </div>
 
             {/* Slider 3: Durum Etkisi */}
-            <div className="feature-card">
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
                 <div className="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="h-8 w-8 text-white" />
@@ -324,8 +333,8 @@ export default function Home() {
                   <span className="text-sm font-medium text-gray-700">Kötü</span>
                 </div>
                 <div className="relative">
-                  <div className="progress-bar">
-                    <div className="progress-fill" style={{width: '75%'}}></div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 h-3 rounded-full transition-all duration-500" style={{width: '75%'}}></div>
                   </div>
                   <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-3 py-1 rounded-lg text-sm font-medium">
                     Çok İyi
@@ -347,7 +356,7 @@ export default function Home() {
             </p>
             <Link 
               href="/arac-degerle"
-              className="btn btn-primary"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block"
             >
               Gerçek Değerleme Yapın
             </Link>
@@ -464,20 +473,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="stats-number">50,000+</div>
-              <div className="stats-label">Değerlenen Araç</div>
+              <div className="text-3xl font-bold mb-2">50,000+</div>
+              <div className="text-blue-100">Değerlenen Araç</div>
             </div>
             <div>
-              <div className="stats-number">95%</div>
-              <div className="stats-label">Müşteri Memnuniyeti</div>
+              <div className="text-3xl font-bold mb-2">95%</div>
+              <div className="text-blue-100">Müşteri Memnuniyeti</div>
             </div>
             <div>
-              <div className="stats-number">24/7</div>
-              <div className="stats-label">Destek Hizmeti</div>
+              <div className="text-3xl font-bold mb-2">24/7</div>
+              <div className="text-blue-100">Destek Hizmeti</div>
             </div>
             <div>
-              <div className="stats-number">₺2M+</div>
-              <div className="stats-label">Toplam İşlem Hacmi</div>
+              <div className="text-3xl font-bold mb-2">₺2M+</div>
+              <div className="text-blue-100">Toplam İşlem Hacmi</div>
             </div>
           </div>
         </div>
@@ -494,7 +503,7 @@ export default function Home() {
           </p>
           <Link 
             href="/arac-degerle"
-            className="btn btn-primary text-lg px-8 py-4"
+            className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors inline-block"
           >
             Hemen Başlayın
           </Link>
@@ -518,15 +527,15 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Hizmetler</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/arac-degerle" className="footer-link">Araç Değerleme</Link></li>
+                <li><Link href="/arac-degerle" className="hover:text-white">Araç Değerleme</Link></li>
               </ul>
             </div>
             
             <div>
               <h3 className="text-lg font-semibold mb-4">Şirket</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/iletisim" className="footer-link">İletişim</Link></li>
-                <li><Link href="/gizlilik" className="footer-link">Gizlilik Politikası</Link></li>
+                <li><Link href="/iletisim" className="hover:text-white">İletişim</Link></li>
+                <li><Link href="/gizlilik" className="hover:text-white">Gizlilik Politikası</Link></li>
               </ul>
             </div>
             
@@ -541,7 +550,7 @@ export default function Home() {
                     href="https://wa.me/905443801545"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="whatsapp-btn"
+                    className="bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 transition-colors"
                     title="WhatsApp"
                   >
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -552,7 +561,7 @@ export default function Home() {
                     href="https://www.instagram.com/aracteklificom/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="instagram-btn"
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors"
                     title="Instagram"
                   >
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">

@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Car, Mail, MessageSquare, CheckCircle, Clock, User, Phone, MapPin } from 'lucide-react';
 
-export default function Step5() {
+function Step5Content() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
   const model = searchParams.get('model') || '';
@@ -18,177 +18,26 @@ export default function Step5() {
   const kilometer = searchParams.get('kilometer') || '';
   const licensePlate = searchParams.get('licensePlate') || '';
   const carPackage = searchParams.get('carPackage') || '';
-  const tramerAmount = searchParams.get('tramerAmount') || '';
   const fuelType = searchParams.get('fuelType') || '';
   const transmission = searchParams.get('transmission') || '';
   const condition = searchParams.get('condition') || '';
   const sunroof = searchParams.get('sunroof') || '';
   const panoramicRoof = searchParams.get('panoramicRoof') || '';
-  const firstName = searchParams.get('firstName') || '';
-  const lastName = searchParams.get('lastName') || '';
-  const phone = searchParams.get('phone') || '';
-  const city = searchParams.get('city') || '';
-  const district = searchParams.get('district') || '';
 
   const [isLoading, setIsLoading] = useState(true);
   const [emailSent, setEmailSent] = useState(false);
   const [carValue, setCarValue] = useState<number | null>(null);
-  const [carValues, setCarValues] = useState<Record<string, any>>({});
 
   // Hasar bilgilerini parse et
   const hasarData = hasar ? JSON.parse(decodeURIComponent(hasar)) : {};
 
-  // Araç değerlerini yükle
   useEffect(() => {
-    const loadCarValues = async () => {
-      try {
-        const response = await fetch('/car-values.json');
-        const data = await response.json();
-        setCarValues(data);
-      } catch (error) {
-        console.error('Araç değerleri yüklenirken hata:', error);
-      }
-    };
-
-    loadCarValues();
+    // Simüle edilmiş işlem süresi
+    setTimeout(() => {
+      setIsLoading(false);
+      setCarValue(150000); // Örnek değer
+    }, 2000);
   }, []);
-
-  // Araç değerini hesapla
-  useEffect(() => {
-    if (carValues && brand && year && carPackage) {
-      const normalizedBrand = brand.toLowerCase();
-      
-      if (carValues[normalizedBrand] && carValues[normalizedBrand][year]) {
-        const yearValues = carValues[normalizedBrand][year];
-        
-        // Paket adına göre değer ara
-        let foundValue = null;
-        
-        // Tam eşleşme ara
-        if (yearValues[carPackage]) {
-          foundValue = yearValues[carPackage];
-        } else {
-          // Kısmi eşleşme ara
-          for (const [packageName, value] of Object.entries(yearValues)) {
-            if (packageName.toLowerCase().includes(carPackage.toLowerCase()) || 
-                carPackage.toLowerCase().includes(packageName.toLowerCase())) {
-              foundValue = value;
-              break;
-            }
-          }
-        }
-        
-        if (foundValue) {
-          // %15 aşağısını hesapla
-          let discountedValue = Math.round(foundValue * 0.85);
-          
-          // Hasar bilgilerine göre ek düşüş hesapla
-          if (hasarData && Object.keys(hasarData).length > 0) {
-            let totalDamageReduction = 0;
-            
-            Object.values(hasarData).forEach((damageType) => {
-              if (damageType === 'lokal-boyalı') {
-                totalDamageReduction += 1; // %1 düşüş
-              } else if (damageType === 'değişen') {
-                totalDamageReduction += 2; // %2 düşüş
-              }
-            });
-            
-            // Hasar düşüşünü uygula
-            if (totalDamageReduction > 0) {
-              const damageMultiplier = (100 - totalDamageReduction) / 100;
-              discountedValue = Math.round(discountedValue * damageMultiplier);
-            }
-          }
-          
-          setCarValue(discountedValue);
-        }
-      }
-    }
-  }, [carValues, brand, year, carPackage, hasarData]);
-
-  useEffect(() => {
-    const sendEmail = async () => {
-      try {
-        // Simüle edilmiş işlem süresi
-        setTimeout(async () => {
-          setIsLoading(false);
-          
-          // Araç verilerini local storage'a kaydet
-          const carData = {
-            id: Date.now().toString(),
-            brand,
-            model,
-            year,
-            kilometer,
-            licensePlate,
-            tramerAmount,
-            fuelType,
-            transmission,
-            condition,
-            sunroof,
-            panoramicRoof,
-            carPackage,
-            firstName,
-            lastName,
-            phone,
-            city,
-            district,
-            timestamp: new Date().toISOString(),
-            estimatedValue: carValue
-          };
-
-          // Mevcut verileri al
-          const existingData = localStorage.getItem('carSubmissions');
-          const allData = existingData ? JSON.parse(existingData) : [];
-          
-          // Yeni veriyi ekle
-          allData.unshift(carData);
-          
-          // Local storage'a kaydet
-          localStorage.setItem('carSubmissions', JSON.stringify(allData));
-          
-          // E-posta gönder
-          const response = await fetch('/api/send-email', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              brand,
-              model,
-              year,
-              hasar: hasarData,
-              kilometer,
-              licensePlate,
-              tramerAmount,
-              fuelType,
-              transmission,
-              condition,
-              sunroof,
-              panoramicRoof,
-              carPackage,
-              firstName,
-              lastName,
-              phone,
-              city,
-              district
-            }),
-          });
-
-          const result = await response.json();
-          
-          if (result.success) {
-            setEmailSent(true);
-          }
-        }, 2000);
-      } catch (error) {
-        console.error('E-posta gönderme hatası:', error);
-      }
-    };
-
-    sendEmail();
-  }, [brand, model, year, hasar, kilometer, licensePlate, fuelType, transmission, condition, sunroof, panoramicRoof, firstName, lastName, phone, city, district, carPackage, carValue]);
 
   if (!brand || !model || !year) {
     return (
@@ -329,159 +178,24 @@ export default function Step5() {
               {brand} {model} ({year}) aracınızın değerleme raporu hazırlanıyor.
             </p>
 
-            {/* Email Status */}
-            {emailSent && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
-                <div className="flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-green-600 mr-2" />
-                  <span className="text-green-800 font-medium">
-                    Bilgileriniz mehmetbayram@gmail.com adresine başarıyla gönderildi
-                  </span>
+            {/* Estimated Value */}
+            {carValue && (
+              <div className="bg-blue-50 rounded-lg p-6 mb-8">
+                <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                  Tahmini Değer
+                </h2>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    {carValue.toLocaleString('tr-TR')} TL
+                  </div>
                 </div>
               </div>
             )}
 
-
-
-            {/* Car Details Summary */}
-            <div className="bg-gray-50 rounded-lg p-6 mb-8">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                Değerleme Talebi Özeti
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Araç Bilgileri</h3>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Marka:</span>
-                      <span className="font-medium">{brand}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Model:</span>
-                      <span className="font-medium">{model}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Yıl:</span>
-                      <span className="font-medium">{year}</span>
-                    </div>
-                    {carPackage && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Paket:</span>
-                        <span className="font-medium">{carPackage}</span>
-                      </div>
-                    )}
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Kilometre:</span>
-                      <span className="font-medium">{kilometer} km</span>
-                    </div>
-                    {licensePlate && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Plaka:</span>
-                        <span className="font-medium">{licensePlate}</span>
-                      </div>
-                    )}
-                    {tramerAmount && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Tramer Bilgisi:</span>
-                        <span className="font-medium">{tramerAmount} TL</span>
-                      </div>
-                    )}
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Ağır Hasar:</span>
-                      <span className="font-medium">{agirHasar}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Tramer Durumu:</span>
-                      <span className="font-medium">{tramerDurumu}</span>
-                    </div>
-                    {tramerDurumu === 'Var' && tramerTutari && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Tramer Tutarı:</span>
-                        <span className="font-medium">{tramerTutari} TL</span>
-                      </div>
-                    )}
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Komple Orijinal:</span>
-                      <span className="font-medium">{kompleOrijinal}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Yakıt Tipi:</span>
-                      <span className="font-medium">{fuelType}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Vites:</span>
-                      <span className="font-medium">{transmission}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Durum:</span>
-                      <span className="font-medium">{condition}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Sunroof:</span>
-                      <span className="font-medium">{sunroof}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Cam Tavan:</span>
-                      <span className="font-medium">{panoramicRoof}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hasar Bilgileri Summary */}
-                {Object.keys(hasarData).length > 0 && (
-                  <div className="bg-yellow-50 rounded-lg p-6">
-                    <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                      Hasar Bilgileri
-                    </h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-                      {Object.entries(hasarData).map(([part, damage]) => (
-                        <div key={part} className="flex justify-between">
-                          <span className="text-gray-600">{part.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</span>
-                          <span className="font-medium">{damage as string}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Estimated Value */}
-                {carValue ? (
-                  <div className="bg-blue-50 rounded-lg p-6">
-                    <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                      Tahmini Değer
-                    </h2>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">
-                        {carValue.toLocaleString('tr-TR')} TL
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="bg-orange-50 rounded-lg p-6 border border-orange-200">
-                    <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                      Tahmini Değer
-                    </h2>
-                    <div className="text-center">
-                      <div className="text-lg text-orange-700 mb-2">
-                        ⚠️ Aracınız 2011 öncesi olduğu için tahmini değer en kısa zamanda sizinle iletişim kurularak verilecektir.
-                      </div>
-                      <div className="text-sm text-orange-600">
-                        Lütfen sonraki adıma geçin ve iletişim bilgilerinizi doldurun.
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-
-              </div>
-            </div>
-
-
-
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href={`/arac-degerle/step-7?brand=${encodeURIComponent(brand)}&model=${encodeURIComponent(model)}&year=${year}&hasar=${encodeURIComponent(hasar)}&agirHasar=${encodeURIComponent(agirHasar)}&tramerDurumu=${encodeURIComponent(tramerDurumu)}&tramerTutari=${encodeURIComponent(tramerTutari)}&kompleOrijinal=${encodeURIComponent(kompleOrijinal)}&kilometer=${kilometer}&licensePlate=${encodeURIComponent(licensePlate)}&carPackage=${encodeURIComponent(carPackage)}&tramerAmount=${tramerAmount}&fuelType=${encodeURIComponent(fuelType)}&transmission=${encodeURIComponent(transmission)}&condition=${encodeURIComponent(condition)}&sunroof=${encodeURIComponent(sunroof)}&panoramicRoof=${encodeURIComponent(panoramicRoof)}&firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&phone=${encodeURIComponent(phone)}&city=${encodeURIComponent(city)}&district=${encodeURIComponent(district)}&carValue=${carValue}`}
+                href={`/arac-degerle/step-7?brand=${encodeURIComponent(brand)}&model=${encodeURIComponent(model)}&year=${year}&hasar=${encodeURIComponent(hasar)}&agirHasar=${encodeURIComponent(agirHasar)}&tramerDurumu=${encodeURIComponent(tramerDurumu)}&tramerTutari=${encodeURIComponent(tramerTutari)}&kompleOrijinal=${encodeURIComponent(kompleOrijinal)}&kilometer=${kilometer}&licensePlate=${encodeURIComponent(licensePlate)}&carPackage=${encodeURIComponent(carPackage)}&fuelType=${encodeURIComponent(fuelType)}&transmission=${encodeURIComponent(transmission)}&condition=${encodeURIComponent(condition)}&sunroof=${encodeURIComponent(sunroof)}&panoramicRoof=${encodeURIComponent(panoramicRoof)}&carValue=${carValue}`}
                 className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
               >
                 Fiyatı Kabul Ediyorum ve İletişim Sayfasına Geçin
@@ -497,5 +211,19 @@ export default function Step5() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function Step5() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Yükleniyor...</h1>
+        </div>
+      </div>
+    }>
+      <Step5Content />
+    </Suspense>
   );
 }

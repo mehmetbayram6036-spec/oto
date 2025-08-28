@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, ArrowLeft, Car, User, Phone, MapPin } from 'lucide-react';
 
-export default function Step7() {
+function Step7Content() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
   const model = searchParams.get('model') || '';
@@ -379,5 +379,19 @@ export default function Step7() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Step7() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Yükleniyor...</h1>
+        </div>
+      </div>
+    }>
+      <Step7Content />
+    </Suspense>
   );
 }

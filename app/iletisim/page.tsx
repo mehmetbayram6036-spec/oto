@@ -12,16 +12,16 @@ export default function Iletisim() {
           <div className="flex justify-between items-center py-6">
             <Link href="/" className="flex items-center">
               <Car className="h-8 w-8 text-blue-600 mr-3" />
-              <h1 className="text-2xl font-bold text-gray-900">aracteklifi.com</h1>
+              <h1 className="text-2xl font-bold text-text-primary">aracteklifi.com</h1>
             </Link>
             <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium">
+              <Link href="/" className="text-text-secondary hover:text-blue-600 font-medium">
                 Ana Sayfa
               </Link>
-              <Link href="/arac-degerle" className="text-gray-700 hover:text-blue-600 font-medium">
+              <Link href="/arac-degerle" className="text-text-secondary hover:text-blue-600 font-medium">
                 Araç Değerle
               </Link>
-              <Link href="/hakkimizda" className="text-gray-700 hover:text-blue-600 font-medium">
+              <Link href="/hakkimizda" className="text-text-secondary hover:text-blue-600 font-medium">
                 Hakkımızda
               </Link>
               <Link href="/iletisim" className="text-blue-600 font-medium">
@@ -36,10 +36,10 @@ export default function Iletisim() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-text-primary mb-4">
             İletişim
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
             aracteklifi.com ile iletişime geçin. Araç değerleme konusunda uzman ekibimiz size yardımcı olmaya hazır.
           </p>
         </div>

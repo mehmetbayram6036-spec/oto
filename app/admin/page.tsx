@@ -102,15 +102,15 @@ export default function AdminPanel() {
             <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <Car className="h-8 w-8 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Admin Paneli</h1>
-            <p className="text-gray-600">Giriş yaparak devam edin</p>
+                    <h1 className="text-2xl font-bold text-text-primary">Admin Paneli</h1>
+        <p className="text-text-secondary">Giriş yaparak devam edin</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Kullanıcı Adı
-              </label>
+                              <label className="block text-sm font-medium text-text-primary mb-2">
+                  Kullanıcı Adı
+                </label>
               <input
                 type="text"
                 value={username}
@@ -121,9 +121,9 @@ export default function AdminPanel() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Şifre
-              </label>
+                              <label className="block text-sm font-medium text-text-primary mb-2">
+                  Şifre
+                </label>
               <input
                 type="password"
                 value={password}

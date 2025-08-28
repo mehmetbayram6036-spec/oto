@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Car, Mail, MessageSquare, CheckCircle, Clock, User, Phone, MapPin } from 'lucide-react';
 
-export default function Step6() {
+function Step6Content() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
   const model = searchParams.get('model') || '';
@@ -396,5 +396,19 @@ export default function Step6() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function Step6() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Yükleniyor...</h1>
+        </div>
+      </div>
+    }>
+      <Step6Content />
+    </Suspense>
   );
 }

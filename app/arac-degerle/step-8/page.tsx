@@ -1,10 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Car, CheckCircle } from 'lucide-react';
 
-export default function Step8() {
+function Step8Content() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
   const model = searchParams.get('model') || '';
@@ -234,5 +235,19 @@ export default function Step8() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Step8() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Yükleniyor...</h1>
+        </div>
+      </div>
+    }>
+      <Step8Content />
+    </Suspense>
   );
 }

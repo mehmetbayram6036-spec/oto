@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, ArrowLeft, Car, CheckCircle } from 'lucide-react';
@@ -63,7 +63,7 @@ const carModels = {
   'Volvo': ['240', '340', '360', '440', '460', '480', '740', '760', '780', '850', '940', '960', 'c30', 'c70', 's40', 's60', 's70', 's80', 's90', 'v40', 'v50', 'v60', 'v70', 'v90', 'xc40', 'xc60', 'xc70', 'xc90']
 };
 
-export default function Step2() {
+function Step2Content() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
   const [selectedModel, setSelectedModel] = useState('');
@@ -243,5 +243,19 @@ export default function Step2() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Step2() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Yükleniyor...</h1>
+        </div>
+      </div>
+    }>
+      <Step2Content />
+    </Suspense>
   );
 }

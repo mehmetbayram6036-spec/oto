@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, ArrowLeft, Car, CarFront, CheckCircle, Car as CarIcon } from 'lucide-react';
 
-export default function Step3Hasar() {
+function Step3HasarContent() {
   const searchParams = useSearchParams();
   const brand = searchParams.get('brand') || '';
   const model = searchParams.get('model') || '';
@@ -681,5 +681,19 @@ export default function Step3Hasar() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Step3Hasar() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Yükleniyor...</h1>
+        </div>
+      </div>
+    }>
+      <Step3HasarContent />
+    </Suspense>
   );
 }
